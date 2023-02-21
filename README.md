@@ -15,3 +15,8 @@
 #### Ok! Ok! Whatever, Can you teach me?
 
 - Maybe yeah, whenever you have time. I don't think i can teach you properly. But can give you some pointers.
+
+#### Your's backend's and frontend's apis are completely different. How does that work?
+
+- Actually i kind of irrited because the axios didn't work like how i intend to, But i found a way for it to work
+- The way actually on the [stack overflow](https://stackoverflow.com/a/66195241). you can also check that out in detail.

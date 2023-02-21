@@ -1,4 +1,3 @@
-
 const User = require("../models/user");
 const jwt = require("jsonwebtoken");
 const { hashPassword, comparePassword } = require("../helpers/auth");
@@ -115,7 +114,7 @@ exports.forgotPassword = async (req, res) => {
     from: process.env.EMAIL_FROM,
     to: user.email,
     subject: "Password reset code",
-    html: "<h1>Your password  reset code is: {resetCode}</h1>"
+    html: "<h1>Your password  reset code is: {resetCode}</h1>",
   };
   // send email
   try {

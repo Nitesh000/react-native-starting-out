@@ -7,23 +7,24 @@ import CircularLogo from "../components/auth/CircularLogo";
 
 const Signin = ({ navigation }) => {
   const [email, setEmail] = useState("");
-  const [passowrd, setPassword] = useState("");
+  const [password, setPassword] = useState("");
   const [loading, setLoading] = useState(false);
 
   const handleSubmit = async () => {
     setLoading(true);
-    if (!email || !passowrd) {
+    if (!email || !password) {
       alert("Please fill all the fields");
       setLoading(false);
       return;
     }
-    console.log("SIGNUP REQUEST => ", email, passowrd);
+    console.log("SIGNUP REQUEST => ", email, password);
     try {
-      const { data } = await axios.post("http://localhost:3000/api/singin", {
+      const { data } = await axios.post("http://10.0.2.2:8000/api/signin", {
         email,
-        passowrd,
+        password,
       });
-      console.log("SIGN IN SUCCESS => ", data);
+      setLoading(false);
+      console.log("SIGN IN SUCCESS => ", JSON.stringify(data));
       alert("Sign in Success");
       // redirect
     } catch (err) {
@@ -61,7 +62,7 @@ const Signin = ({ navigation }) => {
         />
         <UserInput
           name="PASSWORD"
-          value={passowrd}
+          value={password}
           setValue={setPassword}
           secureTextEntry={true}
           autoCompleteType="password"
