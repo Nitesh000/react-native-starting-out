@@ -2,6 +2,7 @@
 **/.expo/
 **/dist/
 **/assets/
+**/config.js
 npm-debug.*
 *.jks
 *.p8

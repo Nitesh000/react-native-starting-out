@@ -1,19 +1,18 @@
-
-import express from "express";
-import cors from "cors";
-import mongoose from "mongoose";
-import { DATABASE } from "./config";
-
-import authRoutes from "./routes/auth";
+require("dotenv").config();
+const express = require("express");
+const cors = require("cors");
+const mongoose = require("mongoose");
+const authRoutes = require("./routes/auth");
 
 const morgan = require("morgan");
 
 const app = express();
+const http = require("http").createServer(app);
 
 // db connection
-mongoose.set("strictQuery", false); // required for version 6
+mongoose.set("strictQuery", false);
 mongoose
-  .connect(DATABASE)
+  .connect(process.env.DATABASE)
   .then(() => console.log("DB connected"))
   .catch((err) => console.log("DB CONNECTION ERROR: ", err));
 
@@ -26,4 +25,6 @@ app.use(morgan("dev"));
 // route middlewares
 app.use("/api", authRoutes);
 
-app.listen(8000, () => console.log("Server running on port 8000"));
+const port = process.env.PORT || 8000;
+
+http.listen(port, () => console.log("Server running on port 8000"));
