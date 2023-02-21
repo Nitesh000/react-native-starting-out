@@ -4,11 +4,14 @@ import UserInput from "../components/auth/UserInput";
 import SubmitButon from "../components/auth/SubmitButton";
 import axios from "axios";
 import CircularLogo from "../components/auth/CircularLogo";
+import { SERVER_API_URL } from "../config";
 
 const Signin = ({ navigation }) => {
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
   const [loading, setLoading] = useState(false);
+
+  console.log(SERVER_API_URL);
 
   const handleSubmit = async () => {
     setLoading(true);
@@ -19,7 +22,7 @@ const Signin = ({ navigation }) => {
     }
     console.log("SIGNUP REQUEST => ", email, password);
     try {
-      const { data } = await axios.post("http://10.0.2.2:8000/api/signin", {
+      const { data } = await axios.post(`${SERVER_API_URL}/signin`, {
         email,
         password,
       });

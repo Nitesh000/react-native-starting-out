@@ -4,8 +4,9 @@ import UserInput from "../components/auth/UserInput";
 import SubmitButon from "../components/auth/SubmitButton";
 import axios from "axios";
 import CircularLogo from "../components/auth/CircularLogo";
+import { SERVER_API_URL } from "../config";
 
-const Singup = ({ navigation }) => {
+const Signup = ({ navigation }) => {
   const [name, setName] = useState("");
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
@@ -20,7 +21,7 @@ const Singup = ({ navigation }) => {
     }
     console.log("SIGNUP REQUEST => ", name, email, password);
     try {
-      const { data } = await axios.post("http://10.0.2.2:8000/api/signup", {
+      const { data } = await axios.post(`${SERVER_API_URL}/signup`, {
         name,
         email,
         password,
@@ -101,4 +102,4 @@ const Singup = ({ navigation }) => {
   );
 };
 
-export default Singup;
+export default Signup;
