@@ -5,6 +5,7 @@ import SubmitButon from "../components/auth/SubmitButton";
 import axios from "axios";
 import CircularLogo from "../components/auth/CircularLogo";
 import { SERVER_API_URL } from "../config";
+import AsyncStorage from "@react-native-async-storage/async-storage";
 
 const Signup = ({ navigation }) => {
   const [name, setName] = useState("");
@@ -26,9 +27,16 @@ const Signup = ({ navigation }) => {
         email,
         password,
       });
-      setLoading(false);
-      console.log("SIGN IN SUCCESS => ", data);
-      alert("Sign Up Success");
+      if (data.error) {
+        alert(data.error);
+        setLoading(false);
+      } else {
+        // save the response in async storage
+        await AsyncStorage.setItem("@auth", JSON.stringify(data));
+        setLoading(false);
+        console.log("SIGN IN SUCCESS => ", data);
+        alert("Sign Up Success");
+      }
       // redirect
     } catch (err) {
       console.log(err);

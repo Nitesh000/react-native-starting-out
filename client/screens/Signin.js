@@ -11,8 +11,6 @@ const Signin = ({ navigation }) => {
   const [password, setPassword] = useState("");
   const [loading, setLoading] = useState(false);
 
-  console.log(SERVER_API_URL);
-
   const handleSubmit = async () => {
     setLoading(true);
     if (!email || !password) {
@@ -26,9 +24,16 @@ const Signin = ({ navigation }) => {
         email,
         password,
       });
-      setLoading(false);
-      console.log("SIGN IN SUCCESS => ", JSON.stringify(data));
-      alert("Sign in Success");
+      if (data.error) {
+        alert(data.error);
+        setLoading(false);
+      } else {
+        // save the response in async storage
+        await AsyncStorage.setItem("@auth", JSON.stringify(data));
+        setLoading(false);
+        console.log("SIGN IN SUCCESS => ", JSON.stringify(data));
+        alert("Sign in Success");
+      }
       // redirect
     } catch (err) {
       console.log(err);
