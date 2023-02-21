@@ -5,7 +5,7 @@ import SubmitButon from "../components/auth/SubmitButton";
 import axios from "axios";
 import CircularLogo from "../components/auth/CircularLogo";
 
-const Signin = () => {
+const Signin = ({ navigation }) => {
   const [email, setEmail] = useState("");
   const [passowrd, setPassword] = useState("");
   const [loading, setLoading] = useState(false);
@@ -90,8 +90,9 @@ const Signin = () => {
             style={{
               color: "#ff9900",
             }}
+            onPress={() => navigation.navigate("Signup")}
           >
-            Sign Un
+            Sign In
           </Text>
         </Text>
       </View>

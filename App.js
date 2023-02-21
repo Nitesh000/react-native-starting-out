@@ -9,7 +9,7 @@ export default function App() {
   return (
     <NavigationContainer>
       <Stack.Navigator
-        initialRouteName="Signin"
+        initialRouteName="Signup"
         screenOptions={{ headerShown: false }}
       >
         <Stack.Screen name="Signup" component={Signup} />
