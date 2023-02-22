@@ -1,13 +1,24 @@
 import { useContext } from "react";
-import { Text, View } from "react-native";
+import { Text, SafeAreaView } from "react-native";
 import AuthContext from "../context/auth";
+import FooterTabs from "../components/nav/FooterTabs";
+import { StatusBar } from "expo-status-bar";
 
 const Home = () => {
   const [state, setState] = useContext(AuthContext);
+  console.log("PLATFORM ==>", Platform.OS);
+  console.log("STATUS BAR HEIGHT ==>", StatusBar);
   return (
-    <View>
+    <SafeAreaView
+      style={{
+        flex: 1,
+        justifyContent: "space-between",
+        paddingTop: StatusBar.currentHeight ? StatusBar.currentHeight : 30,
+      }}
+    >
       <Text>{JSON.stringify(state, null, 4)}</Text>
-    </View>
+      <FooterTabs />
+    </SafeAreaView>
   );
 };
 
