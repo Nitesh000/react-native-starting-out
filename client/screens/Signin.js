@@ -83,7 +83,7 @@ const Signin = ({ navigation }) => {
         />
 
         <SubmitButon
-          title="Sign Up"
+          title="Sign in"
           handleSubmit={handleSubmit}
           loading={loading}
         />
@@ -107,7 +107,7 @@ const Signin = ({ navigation }) => {
             }}
             onPress={() => navigation.navigate("Signup")}
           >
-            Sign In
+            Sign up
           </Text>
         </Text>
       </View>
