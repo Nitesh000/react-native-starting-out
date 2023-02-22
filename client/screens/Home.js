@@ -6,8 +6,6 @@ import { StatusBar } from "expo-status-bar";
 
 const Home = () => {
   const [state, setState] = useContext(AuthContext);
-  console.log("PLATFORM ==>", Platform.OS);
-  console.log("STATUS BAR HEIGHT ==>", StatusBar);
   return (
     <SafeAreaView
       style={{
