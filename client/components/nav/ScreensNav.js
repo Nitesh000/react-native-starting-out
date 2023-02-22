@@ -28,7 +28,7 @@ export default function ScreensNav() {
             name="Home"
             component={Home}
             options={{
-              title: "Links Daily",
+              title: "Just a simple app",
               headerRight: () => <HeaderTabs />,
             }}
           />

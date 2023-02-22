@@ -14,7 +14,15 @@ const Home = () => {
         // paddingTop: StatusBar.currentHeight ? StatusBar.currentHeight : 30,
       }}
     >
-      <Text>{JSON.stringify(state, null, 4)}</Text>
+      <Text
+        style={{
+          alignSelf: "center",
+          fontSize: 30,
+          fontWeight: "300",
+        }}
+      >
+        Home
+      </Text>
       <FooterTabs />
     </SafeAreaView>
   );
